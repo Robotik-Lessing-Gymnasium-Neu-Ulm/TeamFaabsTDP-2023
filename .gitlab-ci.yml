@@ -1,0 +1,32 @@
+stages:
+  - build
+  - upload
+
+build_latex:
+  stage: build
+  image: registry.gitlab.com/islandoftex/images/texlive:latest
+  script:
+    - pdflatex main.tex
+    - pdflatex main.tex
+    - mv main.pdf TeamFaabs2023.pdf
+  after_script:
+    - cat main.log
+  artifacts:
+    paths:
+      - TeamFaabs2023.pdf
+
+upload_docat:
+  stage: upload
+  image: alpine:latest 
+  dependencies: 
+    - build_latex
+  only: 
+    - master
+  script:
+    - apk update
+    - apk add curl
+    - apk add zip 
+    - cd upload
+    - chmod +x deploy.sh
+    - ./deploy.sh
+
