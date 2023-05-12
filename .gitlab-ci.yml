@@ -9,6 +9,8 @@ build_latex:
     - pdflatex main.tex
     - pdflatex main.tex
     - mv main.pdf TeamFaabs2023.pdf
+  only: 
+    - main
   after_script:
     - cat main.log
   artifacts:
@@ -22,7 +24,7 @@ upload_docat:
   dependencies: 
     - build_latex
   only: 
-    - master
+    - main
   script:
     - apk update
     - apk add curl
