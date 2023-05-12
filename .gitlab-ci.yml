@@ -15,6 +15,7 @@ build_latex:
     paths:
       - TeamFaabs2023.pdf
 
+
 upload_docat:
   stage: upload
   image: alpine:latest 
@@ -29,4 +30,3 @@ upload_docat:
     - cd upload
     - chmod +x deploy.sh
     - ./deploy.sh
-
