@@ -7,9 +7,176 @@
 \usepackage{wrapfig}
 
 \title{Team Faabs - Technical Paper}
+\author{Fabian Brune, Mark Krause, Jurij Lenz}
+\date{May 2023}
+
 
 \begin{document}
-\maketitle
+
+
+    \maketitle
+    %\begin{center}
+
+       % \includegraphics[width=\textwidth]{img/}
+       % \caption{Robots-2023}
+       % \label{fig:Robots}
+    %\end{figure}
+    \newpage
+
+
+    \tableofcontents
+     \newpage
+
+
+     %Team general
+    \section{introduction}
+    \subsection{Team}
+
+    %\begin{figure}[h]
+        %\centering
+        %\includegraphics[width=\textwidth]{img/}
+        %\caption{Team Faabs - Jurij Lenz, Fabian Brune, Mark Krause}
+        %\label{fig:team}
+    %\end{figure}
+    In our Team, everyone has a specific task to do.
+\begin{enumerate}
+    \item{Mark Krause: Software $\rightarrow$ }
+    \item{Fabian Brune: Hardware  $\rightarrow$ }
+    \item{Jurij Lenz: Raw Hardware $\rightarrow$ }
+\end{enumerate}
 \newpage
 
+subsection{School}
+%\begin{figure}[ht]
+   % \centering
+   % \includegraphics[width=\textwidth]{img/LGNU.jpg}
+    %\caption{Lessing Gymnasium Neu-Ulm - German Open}
+   % \label{fig:LGNU}
+%\end{figure}
+
+The Robotics program of our school was created 2011. Since then, we managed to win the World Open
+multiple times in either Soccer LightWeight, Soccer Open or OnStage.
+We try to put our new teams as fast as possible in the top leagues. With the gathered experience, we always
+have teams to follow our footsteps.
+\newline
+\subsection{Abstract}
+We are a Team of three students from the Lessing Gymnasium Neu-Ulm in Germany. Furthermore, we founded our Team
+in 2019 and first participated in the RoboCup Junior in 2019. Robotic is a big part of our daily life.
+We meet on school days and even on weekends and holidays.
+\newline
+\newline
+We started developing our Robots in mid 2022 and had a first Prototype in late 2022. After final design
+choices, we had our Robots for the German South-Open in early 2023. From this point on, some progress was
+made in the Hardware sector.
+After optimizing our program, we managed to reach the second place.
+\newline
+After the South-Open we redesigned our kicker and continued fixing small hard-\& software problems. We discovered, that with two cameras
+instead of using a bad dribbler, just to dont use one at the German Open, because it worsend our movement with the ball .
+With these improvements we managed to gather the second place at the German Open and qualified for WM.
+
+\section{Development \& Testing}
+
+\subsection{Development}
+Due to the pandemic we weren't able to get much experience. In 2022 we had our first real RoboCup
+in the LightWeight International League where we got second at the EM. With this experience we started to design the 2023 Open Robot.
+\newline
+The design of our robots aims to be as rigid as possible, while keeping the robot manouverable.
+To achieve this goal, we used metal and 3D printed Parts in combination with optimised circuit boards.
+In combination with our Software, we are able to travel with high speeds to the ball and
+hit a goal without going out of bounce (most of the time).
+
+\subsection{Mechanical Design}
+All our parts were designed using 'Autodesk Inventor 2023 Professional' and 'Autodesk Eagle 9.6.2'.
+Most of our parts are printed with our Prusa MK3S+ and the metal parts are produced
+by our sponsor "Belch und Techhnik".
+\newline
+\newline
+
+%\begin{wrapfigure}{r}{4cm}
+  %  \centering
+   % \includegraphics[width=1\linewidth]{img/inv/OmniWheel.jpg}
+   % \caption{Omniwheels}
+    %\label{fig:OmniWheels}
+%\end{wrapfigure}
+
+The whole design aims to be fast, reliable and robust. To achieve this goal,
+ we put all the force in a powerfull desing.
+\newline
+Traveling with high speeds, while being strong is also a huge challenge. To achieve this, we use high quality
+Maxon DC Motors in combination with the VNH3SP30 driver chip. To put the force on the ground, we designed
+new Omniwheels%~\ref{fig:OmniWheels}.
+The OmniWheel consists of two independent aluminum pieces screwed together. For the small wheels we use a small
+aluminum piece covered with an O-Ring out of EPDM plastic.
+\newline
+To protect this whole construction from the opponent robot, everything is moved into the robot and a 3D
+printed and metal protectors are covering the whole inner side of the robot.
+\newpage
+
+
+\subsection{Electrical Design}
+To detect various elements and control the whole robot we use a Teensy 4.1 microcontroller and a jetson nano
+for ball detection. All electronic parts are soldered to circuit boards.
+\newline
+We have a total of four Circuit Boards:
+\begin{enumerate}
+    \item{Line Detection\& motordriver PCB}
+    \item{camera\&lidar PCB}
+    \item{Controller PCB}
+\end{enumerate}
+Each Circuit Board has a predetermined task and all the above are controlled by the Teensy 4.1 
+and the Jetson Nano 2Gb.
+
+We order our Circuit Boards from a local company and solder the parts manually on the boards.
+
+\subsubsection{Line Detection\& motordriver PCB}
+
+%\begin{wrapfigure}{r}{4cm}
+   % \centering
+   % \includegraphics[width=0.75\linewidth]{img/eagle/LineDedectionPCB.png}
+   % \caption{PCB}
+    %\label{fig:LDPCB}
+%\end{wrapfigure}
+
+The Line Detection PCB consists of a circle with a cross of phototransistor pairs, our motordrivers and the kicker control . To connect all
+48 sensors to our main controller, we use analog multiplexer. The multiplexers are switched parallel
+to save ports.
+\newline
+As you can see on the right, we use pairs of two phototransistors and one led. For us, this is the 
+best way to detect the line.
+
+\subsubsection*{camera\&lidar PCB}
+On this very small and special PCB, we combine our most important sensor, the lidars~\ref{lidars} and our raspery pie 
+pie cam. The camera is used for ball and goal detection. It is directly programmed on our Jetson in OpenCv.
+Our lidars are conected to the Teensy 4.1 on the Controller~\label{PCB:Controller} PCB.
+
+\subsubsection{Controller PCB}
+
+On our controller PCB we got the most imortant parts of our Robot like the Nvidia Jetson Nano 2gb 
+or the Teensy 4.1. Our dribbler is also located on our main PCB. We use our dribbling device
+to give the ball a backspin, so that it stays right infront of our kicker. You can also find our baterry pack 
+and a diod. 
+
+ \subsection{Software} %hier muss noch UNDBEDINGT, zwischen Torwart und Stürmer unterschieden werden.
+ As we all know, that's the objective:
+ \begin{enumerate}
+     \item{Approach the ball quickly and precisely to get it into the ball pit.}
+     \item{Aim for the goal as quickly as possible, while ball is save.}
+     \item{Score as fast as possible.}
+ \end{enumerate}
+ Accordingly, a modularization of the code can be set up.
+ % Das muss mArk schreiben!!
+ \subsubsection{Ball approach}
+ 
+ \subsubsection{Aiming at the goal}
+ 
+ \subsubsection{Shot}
+ 
+ \section{Experience 2023}
+ 
+
+
+
 \end{document}
+
+
+
