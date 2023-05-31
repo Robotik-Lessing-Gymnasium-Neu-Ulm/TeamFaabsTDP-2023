@@ -151,9 +151,9 @@ Our lidars are conected to the Teensy 4.1 on the Controller~\label{PCB:Controlle
 
 \subsubsection{Controller PCB}
 
-On our controller PCB we got the most imortant parts of our Robot like the Nvidia Jetson Nano 2gb 
-or the Teensy 4.1. Our dribbler is also located on our main PCB. We use our dribbling device
-to give the ball a backspin, so that it stays right infront of our kicker. You can also find our baterry pack 
+On our controller PCB we got the most imortant parts of our Robot like the Nvidia Jetson Nano 2gb Developer Kit
+and the Teensy 4.1. Our dribbler is also located on our main PCB. We use our dribbling device
+to give the ball a backspin, so that it stays right infront of our kicker. You can also find our baterry packs 
 and a diod. 
 
  \subsection{Software} %hier muss noch UNDBEDINGT, zwischen Torwart und Stürmer unterschieden werden.
@@ -166,10 +166,18 @@ and a diod.
  Accordingly, a modularization of the code can be set up.
  % Das muss mArk schreiben!!
  \subsubsection{Ball approach}
- 
+ In our understanding, to achieve a good base for all soccer actions, it should be key factor to get the ball 
+ consistently and fast into the ball capturing zone.
+ As we nearly always drive alined to the enemy-sided wall (to minimize the risk of scoring in our own goal) our 
+ calculations follow the same pattern over and over again. As an input they get the x and y coordinate of the 
+ ball, relative to the robots origin. As an output the algorithm generates a direction and a velocity where to drive. 
+ Concrete
  \subsubsection{Aiming at the goal}
  
  \subsubsection{Shot}
+
+ \subsubsection{special tricks and gimmics (butch)}
+
  
  \section{Experience 2023}
  
