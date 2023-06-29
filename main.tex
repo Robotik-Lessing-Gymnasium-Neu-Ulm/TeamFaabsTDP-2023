@@ -10,19 +10,21 @@
 \author{Fabian Brune, Mark Krause, Jurij Lenz}
 \date{May 2023}
 
-
 \begin{document}
 
+\maketitle
 
-    \maketitle
-    %\begin{center}
 
-       % \includegraphics[width=\textwidth]{img/}
-       % \caption{Robots-2023}
-       % \label{fig:Robots}
-    %\end{figure}
-    \newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/Roboter mit Ball querformat 2.jpg}
+    \caption{Team Faabs - Fabian Brune, Mark Krause, Jurij Lenz}
+    \label{fig:team}
+\end{figure}
 
+
+\newpage
+  
 
     \tableofcontents
      \newpage
@@ -32,27 +34,24 @@
     \section{introduction}
     \subsection{Team}
 
-    %\begin{figure}[h]
-        %\centering
-        %\includegraphics[width=\textwidth]{img/}
-        %\caption{Team Faabs - Jurij Lenz, Fabian Brune, Mark Krause}
-        %\label{fig:team}
-    %\end{figure}
+    
     In our Team, everyone has a specific task to do.
 \begin{enumerate}
     \item{Mark Krause: Software $\rightarrow$ }
-    \item{Fabian Brune: Hardware  $\rightarrow$ }
+    \item{Fabian Brune: Hardware design $\rightarrow$ }
     \item{Jurij Lenz: Raw Hardware $\rightarrow$ }
 \end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/Siegerehrung Kassel 1.png}
+    \caption{Team Faaaabs - Fabian Brune, Mark Krause, Jurij Lenz}
+    \label{fig:team}
+\end{figure}
+
 \newpage
 
 subsection{School}
-%\begin{figure}[ht]
-   % \centering
-   % \includegraphics[width=\textwidth]{img/LGNU.jpg}
-    %\caption{Lessing Gymnasium Neu-Ulm - German Open}
-   % \label{fig:LGNU}
-%\end{figure}
+
 
 The Robotics program of our school was created 2011. Since then, we managed to win the World Open
 multiple times in either Soccer LightWeight, Soccer Open or OnStage.
@@ -63,6 +62,12 @@ have teams to follow our footsteps.
 We are a Team of three students from the Lessing Gymnasium Neu-Ulm in Germany. Furthermore, we founded our Team
 in 2019 and first participated in the RoboCup Junior in 2019. Robotic is a big part of our daily life.
 We meet on school days and even on weekends and holidays.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/lgnu.png}
+    \caption{LGNU - our school}
+    \label{fig:lgnu}
+\end{figure}
 \newline
 \newline
 We started developing our Robots in mid 2022 and had a first Prototype in late 2022. After final design
@@ -72,44 +77,41 @@ After optimizing our program, we managed to reach the second place.
 \newline
 After the South-Open we redesigned our kicker and continued fixing small hard-\& software problems. We discovered, that with two cameras
 instead of using a bad dribbler, just to dont use one at the German Open, because it worsend our movement with the ball .
-With these improvements we managed to gather the second place at the German Open and qualified for WM.
+With these improvements we managed to gather the second place at the German Open and qualified for the World Championship.
 
 \section{Development \& Testing}
 
 \subsection{Development}
 Due to the pandemic we weren't able to get much experience. In 2022 we had our first real RoboCup
-in the LightWeight International League where we got second at the EM. With this experience we started to design the 2023 Open Robot.
+in the LightWeight International League where we got second at the European Championship. With this experience we started to design the 2023 Open Robot.
 \newline
 The design of our robots aims to be as rigid as possible, while keeping the robot manouverable.
 To achieve this goal, we used metal and 3D printed Parts in combination with optimised circuit boards.
-In combination with our Software, we are able to travel with high speeds to the ball and
+With our Software, we are able to travel with high speeds to the ball use our dribbler and
 hit a goal without going out of bounce (most of the time).
+
 
 \subsection{Mechanical Design}
 All our parts were designed using 'Autodesk Inventor 2023 Professional' and 'Autodesk Eagle 9.6.2'.
 Most of our parts are printed with our Prusa MK3S+ and the metal parts are produced
-by our sponsor "Belch und Techhnik".
-\newline
-\newline
+by our sponsor "Blech und Techhnik".
 
-%\begin{wrapfigure}{r}{4cm}
-  %  \centering
-   % \includegraphics[width=1\linewidth]{img/inv/OmniWheel.jpg}
-   % \caption{Omniwheels}
-    %\label{fig:OmniWheels}
-%\end{wrapfigure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/Roboter Home.png}
+    \caption{CAD design createt by Fabian Brune (last updated 25.6.23)}
+    \label{fig:roboter}
+\end{figure}
 
-The whole design aims to be fast, reliable and robust. To achieve this goal,
- we put all the force in a powerfull desing.
-\newline
+
 Traveling with high speeds, while being strong is also a huge challenge. To achieve this, we use high quality
 Maxon DC Motors in combination with the VNH3SP30 driver chip. To put the force on the ground, we designed
-new Omniwheels%~\ref{fig:OmniWheels}.
+new Omniwheels
 The OmniWheel consists of two independent aluminum pieces screwed together. For the small wheels we use a small
 aluminum piece covered with an O-Ring out of EPDM plastic.
 \newline
 To protect this whole construction from the opponent robot, everything is moved into the robot and a 3D
-printed and metal protectors are covering the whole inner side of the robot.
+printed and metal protectors are covering the whole inner side of the robot%~\ref{fig:Roboter}..
 \newpage
 
 
@@ -173,8 +175,17 @@ and a diod.
  ball, relative to the robots origin. As an output the algorithm generates a direction and a velocity where to drive. 
  Concrete
  \subsubsection{Aiming at the goal}
- 
- \subsubsection{Shot}
+ To detect the goals we are also using our jetson nano 
+ \subsubsection{kicking device}
+For our kicking device, we use 3Dprinted parts with an optimal design and a self wrapped coil, wich forces an iron bolt to move towards the ball.
+With this technique we can transfer nearly all of the kinetik energy from the iron bolt to the ball. This allows us an direct
+shot at the goalon the other side of the field. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/Schuss.png}
+    \caption{}
+    \label{fig:kicking device}
+\end{figure}
 
  \subsubsection{special tricks and gimmics (butch)}
 
