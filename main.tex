@@ -37,7 +37,7 @@
     
     In our Team, everyone has a specific task to do.
 \begin{enumerate}
-    \item{Mark Krause: Software $\rightarrow$ }
+    \item{Mark Krause: Software and circuit design $\rightarrow$ }
     \item{Fabian Brune: Hardware design $\rightarrow$ }
     \item{Jurij Lenz: Raw Hardware $\rightarrow$ }
 \end{enumerate}
@@ -50,8 +50,7 @@
 
 \newpage
 
-subsection{School}
-
+\subsection{School}
 
 The Robotics program of our school was created 2011. Since then, we managed to win the World Open
 multiple times in either Soccer LightWeight, Soccer Open or OnStage.
@@ -62,6 +61,8 @@ have teams to follow our footsteps.
 We are a Team of three students from the Lessing Gymnasium Neu-Ulm in Germany. Furthermore, we founded our Team
 in 2019 and first participated in the RoboCup Junior in 2019. Robotic is a big part of our daily life.
 We meet on school days and even on weekends and holidays.
+%evt noch Bild von LWL einfügen!!
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{img/lgnu.png}
@@ -164,8 +165,17 @@ and a diod.
      \item{Approach the ball quickly and precisely to get it into the ball pit.}
      \item{Aim for the goal as quickly as possible, while ball is save.}
      \item{Score as fast as possible.}
+     \item {stay inside the playing field very consistently}
  \end{enumerate}
  Accordingly, a modularization of the code can be set up.
+ \subsubsection{Object detection}
+We detect the orange ball, the yellow and the blue goal. This is done with the open-source computer vision library "OpenCv" (v4.1.1) 
+on our jetson nano. We also do multithreading to achieve this three detection processes parallel with the lowest latency possible.
+Our resolution is 816 on 616 pixels in one frame.
+\subsubsection{Onrobot communication}
+The Jetson programms and talks to the Teensy via an usb cable and a raw HID interface. This proofed very stable and fast. The Teensy decides where 
+to drive because its receives all sensor data.   
+ 
  % Das muss mArk schreiben!!
  \subsubsection{Ball approach}
  In our understanding, to achieve a good base for all soccer actions, it should be key factor to get the ball 
@@ -173,9 +183,24 @@ and a diod.
  As we nearly always drive alined to the enemy-sided wall (to minimize the risk of scoring in our own goal) our 
  calculations follow the same pattern over and over again. As an input they get the x and y coordinate of the 
  ball, relative to the robots origin. As an output the algorithm generates a direction and a velocity where to drive. 
- Concrete
+ Concretly we try to get a fix position realtive to the ball and move this point in a cone in front of the ball-capuring-zone.
+ As the ball is directly in front of the robot, it can just drive forward to get the ball in the dribbler. The biggest challenge is,
+ to calculate the optimal curve with direction and velocity vectors.
+ %bitte noch mein ballaproach einfügen!!
  \subsubsection{Aiming at the goal}
- To detect the goals we are also using our jetson nano 
+ To detect the goals we are also using our jetson nano. We only use the agles of the goals for the positioning on the field
+ and shoting in the right direction and not blind. The bot only shots when it is in range and good alined with the goal to minimize unnecessary ball losses.
+
+ \subsubsection{detecting the white lines and avoiding out of bounds}
+ To know where the Robot has to drive when it see the white line, it collects all coordinates of all linesensors that have seen the line in ableshort period of time
+ and calculate the opposite vector. In future we plan to update it, becaus it proofed very annyoing and not quiet a hundred percent secure.
+ Also we use our LIDAR Sensors to avoid to close wallcontacs on high velocities, which turns out really reliable and usefull.
+
+ \subsubsection{special tricks and gimmics (butch)}
+ In case that we don't see the ball on the field, we drive to fix points on the field to save some time driving to the next neutral spot.
+ Also we try to communicate if the ball is close to one robot via buetooth, so that the other one can drive to the back not disturbing the attacker.
+ We didn't want to have a set goalie, because of the fact that it may be more usefull to have two attackers.
+
  \subsubsection{kicking device}
 For our kicking device, we use 3Dprinted parts with an optimal design and a self wrapped coil, wich forces an iron bolt to move towards the ball.
 With this technique we can transfer nearly all of the kinetik energy from the iron bolt to the ball. This allows us an direct
@@ -187,9 +212,6 @@ shot at the goalon the other side of the field.
     \label{fig:kicking device}
 \end{figure}
 
- \subsubsection{special tricks and gimmics (butch)}
-
- 
  \section{Experience 2023}
  
 
