@@ -79,20 +79,20 @@ We meet on school days and even on weekends and holidays.
 
 %\newline
 %\newline
-We started developing our Robots in mid 2022 and had a first Prototype in late 2022. After final design
-choices, we had our Robots for the German South-Open in early 2023. From this point on, some progress was
+We started developing our robots in mid 2022 and had a first prototype in late 2022. After final design
+choices, we had our robots for the German South-Open in early 2023. From this point on, some progress was
 made in the Hardware sector.
 After optimizing our program, we managed to reach the second place.
 \newline
-After the South-Open we redesigned our kicker and continued fixing small hard-\& software problems. We discovered, 
-instead of using a bad dribbler, just to dont use one at the German Open, because it worsend our movement with the ball .
+After the South-Open we redesigned our kicker and continued fixing small hard-\& software problems. Due to technical issues movement with the ball whilst dribbling was
+not possible and in the German Open we had to participate without a dribbler.
 With these improvements we managed to gather the second place at the German Open and qualified for the World Championship.
 
 \section{Development \& Testing}
 
 \subsection{Development}
 Due to the pandemic we weren't able to get much experience. In 2022 we had our first real RoboCup
-in the LightWeight International League where we got second at the European Championship. With this experience we started to design the 2023 Open Robot.
+in the LightWeight International League where we got second at the European Championship. With this experience we started to design the 2023 Open robot.
 \newline
 The design of our robots aims to be as rigid as possible, while keeping the robot manouverable.
 To achieve this goal, we used metal and 3D printed Parts in combination with optimised circuit boards.
@@ -102,7 +102,7 @@ hit a goal without going out of bounce (most of the time).
 \begin{figure}[!h]
     \begin{center}
     \resizebox*{0.4\columnwidth}{!}{\includegraphics{img/prototype.png}}
-    \caption{prototype from december last year}
+    \caption{prototype from december last year :-}
     \label{prototype}
     \end{center}
     \end{figure}
@@ -115,57 +115,57 @@ by our sponsor "Blech und Techhnik".
 \begin{figure}[!h]
     \begin{center}
     \resizebox*{0.5\columnwidth}{!}{\includegraphics{img/Roboter Home.png}}
-    \caption{CAD design createt by Fabian Brune (last updated 25.6.23)}
+    \caption{CAD design created by Fabian Brune (last updated 25.6.23)}
     \label{Robot}
     \end{center}
     \end{figure}
 
 Traveling with high speeds, while being strong is also a huge challenge. To achieve this, we use high quality
 Maxon DC Motors in combination with the VNH3SP30 driver chip. To put the force on the ground, we designed
-new Omniwheels
+new OmniWheels.
 The OmniWheel consists of two independent aluminum pieces screwed together. For the small wheels we use a small
 aluminum piece covered with an O-Ring out of EPDM plastic.
 \newline
 To protect this whole construction from the opponent robot, everything is moved into the robot and a 3D
-printed and metal protectors are covering the whole inner side of the robot~\ref{fig:Roboter}..
+print and metal protectors are covering the whole inner side of the robot.~\ref{fig:Roboter}..
 \newpage
 
 
 \subsection{Electrical Design}
-To detect various elements and control the whole robot we use a Teensy 4.1 microcontroller and a jetson nano
+To detect various elements and control the whole robot we use a Teensy 4.1 microcontroller and a Jetson Nano
 for ball detection. All electronic parts are soldered to circuit boards.
 \newline
-We have a total of four Circuit Boards:
+We have a total of three Circuit Boards:
 \begin{enumerate}
     \item{Line Detection\& motordriver PCB}
     \item{camera\&lidar PCB}
     \item{Controller PCB}
 \end{enumerate}
 Each Circuit Board has a predetermined task and all the above are controlled by the Teensy 4.1
-and the Jetson Nano 2Gb.
+and the Jetson Nano 2GB.
 
 We order our Circuit Boards from a local company and solder the parts manually on the boards.
 
 \subsubsection{Line Detection\& motordriver PCB}
 
 %\begin{wrapfigure}{r}{4cm}
-% \centering
+% \centering 
 % \includegraphics[width=0.75\linewidth]{img/eagle/LineDedectionPCB.png}
 % \caption{PCB}
 %\label{fig:LDPCB}
 %\end{wrapfigure}
 
-The Line Detection PCB consists of a circle with a cross of phototransistor pairs, our motordrivers and the kicker control . To connect all
+The Line Detection PCB consists of three circles of phototransistor pairs, our motordrivers and the kicker control. To connect all
 48 sensors to our main controller, we use analog multiplexer. The multiplexers are switched parallel
 to save ports.
 \newline
-As you can see on the right, we use pairs of two phototransistors and one led. For us, this is the
+We use pairs of two phototransistors and one led. For us, this is the
 best way to detect the line.
 
-\subsubsection*{camera\&lidar PCB}
-On this very small and special PCB, we combine our most important sensor, the lidars~\ref{lidars} and our raspery pi
+\subsubsection*{Camera\&Lidar PCB}
+On this very small and special PCB, we combine our most important sensors, the lidars and our Raspberry Pi
 cam. The camera is used for ball and goal detection. It is directly programmed on our Jetson in OpenCv.
-Our lidars are conected to the Teensy 4.1 on the Controller~\label{PCB:Controller} PCB via I2C.
+Our lidars are connected to the Teensy 4.1 on the Controller~\label{PCB:Controller} PCB via I2C.
 
 \begin{figure}[!h]
     \begin{center}
@@ -178,27 +178,26 @@ Our lidars are conected to the Teensy 4.1 on the Controller~\label{PCB:Controlle
 
 \subsubsection{Controller PCB}
 
-On our controller PCB we got the most imortant parts of our Robot like the Nvidia Jetson Nano 2gb Developer Kit
+On our Controller PCB we got the most imortant parts of our robot like the Nvidia Jetson Nano 2GB Developer Kit
 and the Teensy 4.1. Our dribbler is also located on our main PCB. We use our dribbling device
-to give the ball a backspin, so that it stays right infront of our kicker. You can also find our baterry packs
-and a diod.
+to give the ball a backspin, so that it stays right infront of our kicker. 
 
 \subsection{Software} 
 As we all know, that's the objective:
 \begin{enumerate}
     \item{Approach the ball quickly and precisely to get it into the ball pit.}
-    \item{Aim for the goal as quickly as possible, while ball is save.}
+    \item{Aim for the goal as quickly as possible, while the ball is save.}
     \item{Score as fast as possible.}
-    \item {stay inside the playing field very consistently}
+    \item {Stay inside the playing field very consistently}
 \end{enumerate}
 Accordingly, a modularization of the code can be set up.
 \subsubsection{Object detection}
 We detect the orange ball, the yellow and the blue goal. This is done with the open-source computer vision library "OpenCv" (v4.1.1)
-on our jetson nano. We also do multithreading to achieve this three detection processes parallel with the lowest latency possible.
+on our Jetson Nano. We also do multithreading to achieve this three detection processes parallel with the lowest latency possible.
 Our resolution is 816 on 616 pixels in one frame.
 \subsubsection{Onrobot communication}
-The Jetson programms and talks to the Teensy via an usb cable and a raw HID interface. This proofed very stable and fast. The Teensy decides where
-to drive because its receives all sensor data.
+The Jetson programms and talks to the Teensy via an USB cable and a raw HID interface. This proved to be very stable and fast. The Teensy decides where
+to drive because it receives all sensor data.
 
 \begin{figure}[!h]
     \begin{center}
@@ -229,23 +228,23 @@ to calculate the optimal curve with direction and velocity vectors.
     \end{figure}
     
 \subsubsection{Aiming at the goal}
-To detect the goals we are also using our jetson nano. We only use the agles of the goals for the positioning on the field
-and shoting in the right direction and not blind. The bot only shots when it is in range and good alined with the goal to minimize unnecessary ball losses.
+To detect the goals we are also using our Jetson Nano. We only use the angles of the goals for the positioning on the field
+and shooting in the right direction and not blind. The bot only shoots when it is in range and good alined with the goal to minimize unnecessary ball losses.
 
-\subsubsection{detecting the white lines and avoiding out of bounds}
-To know where the Robot has to drive when it see the white line, it collects all coordinates of all linesensors that have seen the line in ableshort period of time
-and calculate the opposite vector. In future we plan to update it, becaus it proofed very annyoing and not quiet a hundred percent secure.
-Also we use our LIDAR Sensors to avoid to close wallcontacs on high velocities, which turns out really reliable and usefull.
+\subsubsection{Detecting the white lines and avoiding out of bounds}
+To know where the robot has to drive when it sees a white line, it collects all coordinates of all linesensors that have seen the line in a short period of time
+and calculate the opposite vector. In the future we plan to update it because it proofed to be very annyoing and not quiet a hundred percent secure.
+Also we use our LIDAR sensors to avoid to close wallcontacs on high velocities, which turns out really reliable and usefull.
 
-\subsubsection{special tricks and gimmics (butch)}
+\subsubsection{Special tricks and gimmics (butch)}
 In case that we don't see the ball on the field, we drive to fix points on the field to save some time driving to the next neutral spot.
 Also we try to communicate if the ball is close to one robot via buetooth, so that the other one can drive to the back not disturbing the attacker.
-We didn't want to have a set goalie, because of the fact that it may be more usefull to have two attackers.
+We didn't want to have a set goalie because of the fact that it may be more usefull to have two attackers.
 
-\subsubsection{kicking device}
-For our kicking device, we use 3Dprinted parts with an optimal design and a self wrapped coil, wich forces an iron bolt to move towards the ball.
-With this technique we can transfer nearly all of the kinetik energy from the iron bolt to the ball. This allows us an direct
-shot at the goalon the other side of the field.
+\subsubsection{Kicking device}
+For our kicking device, we use 3D printed parts with an optimal design and a self wrapped coil, wich forces an iron bolt to move towards the ball.
+With this technique we can transfer nearly all of the kinetic energy from the iron bolt to the ball. This allows us an direct
+shot at the goal on the other side of the field.
 
 \begin{figure}[!h]
     \begin{center}
