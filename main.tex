@@ -24,26 +24,27 @@
 
 
 \newpage
-  
-
-    \tableofcontents
-     \newpage
 
 
-     %Team general
-    \section{introduction}
-    \subsection{Team}
+\tableofcontents
+\newpage
 
-    
-    In our Team, everyone has a specific task to do.
+
+%Team general
+\section{introduction}
+\subsection{Team}
+
+
+In our Team, everyone has a specific task to do.
 \begin{enumerate}
-    \item{Mark Krause: Software and circuit design $\rightarrow$ }
-    \item{Fabian Brune: Hardware design $\rightarrow$ }
-    \item{Jurij Lenz: Raw Hardware $\rightarrow$ }
+    \item{Mark Krause: Software and circuit design }
+    \item{Fabian Brune: Hardware design }
+    \item{Jurij Lenz: Raw Hardware }
 \end{enumerate}
+
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{img/Siegerehrung Kassel 1.png}
+    \includegraphics[width=0.75\linewidth, ]{img/Siegerehrung Kassel 1.png}
     \caption{Team Faaaabs - Fabian Brune, Mark Krause, Jurij Lenz}
     \label{fig:team}
 \end{figure}
@@ -57,18 +58,19 @@ multiple times in either Soccer LightWeight, Soccer Open or OnStage.
 We try to put our new teams as fast as possible in the top leagues. With the gathered experience, we always
 have teams to follow our footsteps.
 \newline
-\subsection{Abstract}
-We are a Team of three students from the Lessing Gymnasium Neu-Ulm in Germany. Furthermore, we founded our Team
-in 2019 and first participated in the RoboCup Junior in 2019. Robotic is a big part of our daily life.
-We meet on school days and even on weekends and holidays.
-%evt noch Bild von LWL einfügen!!
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{img/lgnu.png}
     \caption{LGNU - our school}
     \label{fig:lgnu}
 \end{figure}
+\subsection{Abstract}
+We are a Team of three students from the Lessing Gymnasium Neu-Ulm in Germany. Furthermore, we founded our Team
+in 2019 and first participated in the RoboCup Junior in 2019. Robotic is a big part of our daily life.
+We meet on school days and even on weekends and holidays.
+%evt noch Bild von LWL einfügen!!
+
+
 %\newline
 %\newline
 We started developing our Robots in mid 2022 and had a first Prototype in late 2022. After final design
@@ -97,7 +99,7 @@ All our parts were designed using 'Autodesk Inventor 2023 Professional' and 'Aut
 Most of our parts are printed with our Prusa MK3S+ and the metal parts are produced
 by our sponsor "Blech und Techhnik".
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/Roboter Home.png}
     \caption{CAD design createt by Fabian Brune (last updated 25.6.23)}
@@ -126,7 +128,7 @@ We have a total of four Circuit Boards:
     \item{camera\&lidar PCB}
     \item{Controller PCB}
 \end{enumerate}
-Each Circuit Board has a predetermined task and all the above are controlled by the Teensy 4.1 
+Each Circuit Board has a predetermined task and all the above are controlled by the Teensy 4.1
 and the Jetson Nano 2Gb.
 
 We order our Circuit Boards from a local company and solder the parts manually on the boards.
@@ -134,21 +136,21 @@ We order our Circuit Boards from a local company and solder the parts manually o
 \subsubsection{Line Detection\& motordriver PCB}
 
 %\begin{wrapfigure}{r}{4cm}
-   % \centering
-   % \includegraphics[width=0.75\linewidth]{img/eagle/LineDedectionPCB.png}
-   % \caption{PCB}
-    %\label{fig:LDPCB}
+% \centering
+% \includegraphics[width=0.75\linewidth]{img/eagle/LineDedectionPCB.png}
+% \caption{PCB}
+%\label{fig:LDPCB}
 %\end{wrapfigure}
 
 The Line Detection PCB consists of a circle with a cross of phototransistor pairs, our motordrivers and the kicker control . To connect all
 48 sensors to our main controller, we use analog multiplexer. The multiplexers are switched parallel
 to save ports.
 \newline
-As you can see on the right, we use pairs of two phototransistors and one led. For us, this is the 
+As you can see on the right, we use pairs of two phototransistors and one led. For us, this is the
 best way to detect the line.
 
 \subsubsection*{camera\&lidar PCB}
-On this very small and special PCB, we combine our most important sensor, the lidars~\ref{lidars} and our raspery pi 
+On this very small and special PCB, we combine our most important sensor, the lidars~\ref{lidars} and our raspery pi
 cam. The camera is used for ball and goal detection. It is directly programmed on our Jetson in OpenCv.
 Our lidars are conected to the Teensy 4.1 on the Controller~\label{PCB:Controller} PCB via I2C.
 
@@ -156,64 +158,65 @@ Our lidars are conected to the Teensy 4.1 on the Controller~\label{PCB:Controlle
 
 On our controller PCB we got the most imortant parts of our Robot like the Nvidia Jetson Nano 2gb Developer Kit
 and the Teensy 4.1. Our dribbler is also located on our main PCB. We use our dribbling device
-to give the ball a backspin, so that it stays right infront of our kicker. You can also find our baterry packs 
-and a diod. 
+to give the ball a backspin, so that it stays right infront of our kicker. You can also find our baterry packs
+and a diod.
 
- \subsection{Software} %hier muss noch UNDBEDINGT, zwischen Torwart und Stürmer unterschieden werden.
- As we all know, that's the objective:
- \begin{enumerate}
-     \item{Approach the ball quickly and precisely to get it into the ball pit.}
-     \item{Aim for the goal as quickly as possible, while ball is save.}
-     \item{Score as fast as possible.}
-     \item {stay inside the playing field very consistently}
- \end{enumerate}
- Accordingly, a modularization of the code can be set up.
- \subsubsection{Object detection}
-We detect the orange ball, the yellow and the blue goal. This is done with the open-source computer vision library "OpenCv" (v4.1.1) 
+\subsection{Software} %hier muss noch UNDBEDINGT, zwischen Torwart und Stürmer unterschieden werden.
+As we all know, that's the objective:
+\begin{enumerate}
+    \item{Approach the ball quickly and precisely to get it into the ball pit.}
+    \item{Aim for the goal as quickly as possible, while ball is save.}
+    \item{Score as fast as possible.}
+    \item {stay inside the playing field very consistently}
+\end{enumerate}
+Accordingly, a modularization of the code can be set up.
+\subsubsection{Object detection}
+We detect the orange ball, the yellow and the blue goal. This is done with the open-source computer vision library "OpenCv" (v4.1.1)
 on our jetson nano. We also do multithreading to achieve this three detection processes parallel with the lowest latency possible.
 Our resolution is 816 on 616 pixels in one frame.
 \subsubsection{Onrobot communication}
-The Jetson programms and talks to the Teensy via an usb cable and a raw HID interface. This proofed very stable and fast. The Teensy decides where 
-to drive because its receives all sensor data.   
- 
- % Das muss mArk schreiben!!
- \subsubsection{Ball approach}
- In our understanding, to achieve a good base for all soccer actions, it should be key factor to get the ball 
- consistently and fast into the ball capturing zone.
- As we nearly always drive alined to the enemy-sided wall (to minimize the risk of scoring in our own goal) our 
- calculations follow the same pattern over and over again. As an input they get the x and y coordinate of the 
- ball, relative to the robots origin. As an output the algorithm generates a direction and a velocity where to drive. 
- Concretly we try to get a fix position realtive to the ball and move this point in a cone in front of the ball-capuring-zone.
- As the ball is directly in front of the robot, it can just drive forward to get the ball in the dribbler. The biggest challenge is,
- to calculate the optimal curve with direction and velocity vectors.
- %bitte noch mein ballaproach einfügen!!
- \subsubsection{Aiming at the goal}
- To detect the goals we are also using our jetson nano. We only use the agles of the goals for the positioning on the field
- and shoting in the right direction and not blind. The bot only shots when it is in range and good alined with the goal to minimize unnecessary ball losses.
+The Jetson programms and talks to the Teensy via an usb cable and a raw HID interface. This proofed very stable and fast. The Teensy decides where
+to drive because its receives all sensor data.
 
- \subsubsection{detecting the white lines and avoiding out of bounds}
- To know where the Robot has to drive when it see the white line, it collects all coordinates of all linesensors that have seen the line in ableshort period of time
- and calculate the opposite vector. In future we plan to update it, becaus it proofed very annyoing and not quiet a hundred percent secure.
- Also we use our LIDAR Sensors to avoid to close wallcontacs on high velocities, which turns out really reliable and usefull.
+% Das muss mArk schreiben!!
+\subsubsection{Ball approach}
+In our understanding, to achieve a good base for all soccer actions, it should be key factor to get the ball
+consistently and fast into the ball capturing zone.
+As we nearly always drive alined to the enemy-sided wall (to minimize the risk of scoring in our own goal) our
+calculations follow the same pattern over and over again. As an input they get the x and y coordinate of the
+ball, relative to the robots origin. As an output the algorithm generates a direction and a velocity where to drive.
+Concretly we try to get a fix position realtive to the ball and move this point in a cone in front of the ball-capuring-zone.
+As the ball is directly in front of the robot, it can just drive forward to get the ball in the dribbler. The biggest challenge is,
+to calculate the optimal curve with direction and velocity vectors.
+%bitte noch mein ballaproach einfügen!!
+\subsubsection{Aiming at the goal}
+To detect the goals we are also using our jetson nano. We only use the agles of the goals for the positioning on the field
+and shoting in the right direction and not blind. The bot only shots when it is in range and good alined with the goal to minimize unnecessary ball losses.
 
- \subsubsection{special tricks and gimmics (butch)}
- In case that we don't see the ball on the field, we drive to fix points on the field to save some time driving to the next neutral spot.
- Also we try to communicate if the ball is close to one robot via buetooth, so that the other one can drive to the back not disturbing the attacker.
- We didn't want to have a set goalie, because of the fact that it may be more usefull to have two attackers.
+\subsubsection{detecting the white lines and avoiding out of bounds}
+To know where the Robot has to drive when it see the white line, it collects all coordinates of all linesensors that have seen the line in ableshort period of time
+and calculate the opposite vector. In future we plan to update it, becaus it proofed very annyoing and not quiet a hundred percent secure.
+Also we use our LIDAR Sensors to avoid to close wallcontacs on high velocities, which turns out really reliable and usefull.
 
- \subsubsection{kicking device}
+\subsubsection{special tricks and gimmics (butch)}
+In case that we don't see the ball on the field, we drive to fix points on the field to save some time driving to the next neutral spot.
+Also we try to communicate if the ball is close to one robot via buetooth, so that the other one can drive to the back not disturbing the attacker.
+We didn't want to have a set goalie, because of the fact that it may be more usefull to have two attackers.
+
+\subsubsection{kicking device}
 For our kicking device, we use 3Dprinted parts with an optimal design and a self wrapped coil, wich forces an iron bolt to move towards the ball.
 With this technique we can transfer nearly all of the kinetik energy from the iron bolt to the ball. This allows us an direct
-shot at the goalon the other side of the field. 
+shot at the goalon the other side of the field.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{img/Schuss.png}
-    \caption{}
+    \caption{Kicking Device}
     \label{fig:kicking device}
 \end{figure}
 
- \section{Experience 2023}
- 
+\section{Experience 2023}
+
 
 
 
